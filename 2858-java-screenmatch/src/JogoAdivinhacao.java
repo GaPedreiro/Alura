@@ -27,7 +27,6 @@ public class JogoAdivinhacao {
                 break;
             }
         }
-
         if (numeroDeVidas == 0) {
             System.out.println("Sinto muito, suas vidas acabaram!");
             System.out.println("O resultado era: " + numeroEscolhido);
