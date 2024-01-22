@@ -1,1 +1,1 @@
-# O contepudo está na branch MASTER.
+# O conteúdo está na branch MASTER.
