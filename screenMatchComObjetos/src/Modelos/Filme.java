@@ -1,6 +1,8 @@
 package Modelos;
 
-public class Filme extends Titulo {
+import Calculos.Classificavel;
+
+public class Filme extends Titulo implements Classificavel {
     private String diretor;
 
     public String getDiretor() {
@@ -9,5 +11,11 @@ public class Filme extends Titulo {
 
     public void setDiretor(String diretor) {
         this.diretor = diretor;
+    }
+
+    @Override
+    public int getClassificacao() {
+        return 0;
+        // por o pegaMedia aqui
     }
 }
