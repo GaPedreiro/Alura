@@ -70,5 +70,8 @@ public class Principal {
         episodio.setSerie(minhaSerie);
         episodio.setTotalVisualizacoes(8);
         filtro.filtra(episodio);
+
+        // Trabalhando com listas.
+        
     }
 }
