@@ -68,7 +68,7 @@ public class Principal {
         Episodio episodio = new Episodio();
         episodio.setNumero(1);
         episodio.setSerie(minhaSerie);
-        episodio.setTotalVisualizacoes(300);
+        episodio.setTotalVisualizacoes(8);
         filtro.filtra(episodio);
     }
 }
