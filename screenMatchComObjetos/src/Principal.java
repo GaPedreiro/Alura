@@ -4,6 +4,8 @@ import Modelos.Episodio;
 import Modelos.Filme;
 import Modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
         Filme meuFilme = new Filme();
@@ -23,6 +25,13 @@ public class Principal {
         outroFilme.setSomaDasAvaliacoes(8.0);
         outroFilme.setDuracaoEmMinutos(160);
         outroFilme.setIncluidoPlano(true);
+
+        var filmeDoGabriel = new Filme(); // O VAR FAZ UMA INFERÊNCIA DE TIPO, ELE RECONHECE QUE filmeDoGabriel SE TRATA DE UM FILME, E TIPA ELE AUTOMATICAMENTE
+        filmeDoGabriel.setNome("A vida Secreta de Walter Mitty");
+        filmeDoGabriel.setAnoLancamento(2013);
+        filmeDoGabriel.setDuracaoEmMinutos(80);
+        filmeDoGabriel.avalia(10);
+
 
         // Série
 
@@ -70,8 +79,30 @@ public class Principal {
         episodio.setSerie(minhaSerie);
         episodio.setTotalVisualizacoes(8);
         filtro.filtra(episodio);
+        System.out.println("********************************");
 
         // Trabalhando com listas.
-        
+
+        /* Exemplo de Array (sem ser array list):
+
+            int[] numeros = new int[5];
+
+            for (int i = 0; i < numeros.length; i++) {
+                numeros[i] = i + 1;
+            }
+
+         */
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeDoGabriel);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+
+        System.out.println("Tamanho da lista de filmes: " + listaDeFilmes.size());
+        for (int i = 0; i < listaDeFilmes.size(); i++) {
+            System.out.println("- " + listaDeFilmes.get(i).getNome());
+        }
+        System.out.println("\ntoString de exemplo: " + listaDeFilmes.toString());
+
     }
 }
