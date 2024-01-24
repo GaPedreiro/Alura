@@ -12,6 +12,16 @@ public class Titulo {
     private int totalAvaliacoes = 0;
     private int duracaoEmMinutos;
 
+    /*
+    Os construtores são os responsáveis por popular o objeto, também podem ser feitas validações nele
+    Por exemplo, para popular determinado objeto, faz-se necessário validar as informações passadas como
+    parâmetros.
+     */
+    public Titulo(String nome, int anoLancamento) {
+        this.nome = nome;
+        this.anoLancamento = anoLancamento;
+    }
+
     // methods
 
 

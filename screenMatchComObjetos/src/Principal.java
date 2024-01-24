@@ -8,9 +8,7 @@ import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("Star Wars III");
-        meuFilme.setAnoLancamento(1998);
+        Filme meuFilme = new Filme("Star Wars III", 1998);
         meuFilme.setSomaDasAvaliacoes(8.0);
         meuFilme.setDuracaoEmMinutos(150);
         meuFilme.setIncluidoPlano(true);
@@ -19,25 +17,19 @@ public class Principal {
         meuFilme.avalia(10);
         meuFilme.avalia(10);
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Star Wars IV");
-        outroFilme.setAnoLancamento(1998);
+        Filme outroFilme = new Filme("Star Wars IV", 1998);
         outroFilme.setSomaDasAvaliacoes(8.0);
         outroFilme.setDuracaoEmMinutos(160);
         outroFilme.setIncluidoPlano(true);
 
-        var filmeDoGabriel = new Filme(); // O VAR FAZ UMA INFERÊNCIA DE TIPO, ELE RECONHECE QUE filmeDoGabriel SE TRATA DE UM FILME, E TIPA ELE AUTOMATICAMENTE
-        filmeDoGabriel.setNome("A vida Secreta de Walter Mitty");
-        filmeDoGabriel.setAnoLancamento(2013);
+        var filmeDoGabriel = new Filme("A vida Secreta de Walter Mitty", 2013); // O VAR FAZ UMA INFERÊNCIA DE TIPO, ELE RECONHECE QUE filmeDoGabriel SE TRATA DE UM FILME, E TIPA ELE AUTOMATICAMENTE
         filmeDoGabriel.setDuracaoEmMinutos(80);
         filmeDoGabriel.avalia(10);
 
 
         // Série
 
-        Serie minhaSerie = new Serie();
-        minhaSerie.setNome("True Detetive");
-        minhaSerie.setAnoLancamento(2023);
+        Serie minhaSerie = new Serie("True Detetive", 2023);
         minhaSerie.setTemporadas(4);
         minhaSerie.setEpisodiosPorTemporada(10);
         minhaSerie.setMinutosPorEpisodio(60);
@@ -100,9 +92,10 @@ public class Principal {
 
         System.out.println("Tamanho da lista de filmes: " + listaDeFilmes.size());
         for (int i = 0; i < listaDeFilmes.size(); i++) {
-            System.out.println("- " + listaDeFilmes.get(i).getNome());
+            System.out.println("- " + listaDeFilmes.get(i));
         }
         System.out.println("\ntoString de exemplo: " + listaDeFilmes.toString());
+
 
     }
 }

@@ -6,6 +6,15 @@ public class Serie extends  Titulo {
    private int episodiosPorTemporada;
    private int minutosPorEpisodio;
 
+    /*
+    Como foi posto um construtor na super classe Titulo, o construtor padrão e implícito que existia
+    foi desfeito, agora existe a necessida de também ter um construtor na sub classe, um construtor
+    que faça a mesma coisa que o da super classe.
+     */
+    public Serie(String nome, int anoLancamento) {
+        super(nome, anoLancamento);
+    }
+
     public int getTemporadas() {
         return temporadas;
     }

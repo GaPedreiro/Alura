@@ -7,19 +7,22 @@ public class Main {
     public static void main(String[] args) {
         List<Pessoa> pessoas = new ArrayList<>();
 
-        Pessoa pessoa = new Pessoa();
-        pessoa.setIdade(23);
-        pessoa.setName("Camila Martins");
+        Pessoa pessoa = new Pessoa("Camila Martins", 23);
         pessoas.add(pessoa);
 
-        Pessoa outraPessoa = new Pessoa();
-        outraPessoa.setIdade(25);
-        outraPessoa.setName("Gabriel Ramos");
+        Pessoa outraPessoa = new Pessoa("Gabriel Ramos", 25);
         pessoas.add(outraPessoa);
 
         for (int i = 0; i < pessoas.size(); i++) {
-            System.out.println("Nome: " + pessoas.get(i).getName() +
-                    "\nIdade: " + pessoas.get(i).getIdade());
+            System.out.println(pessoas.get(i));
         }
+
+        /* Outra forma de apresentar os dados:
+
+        for (Pessoa pessoa1 : pessoas) {
+            System.out.println(pessoa1);
+        }
+
+         */
     }
 }
