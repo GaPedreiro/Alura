@@ -16,4 +16,9 @@ public class ContaBancaria {
         this.numeroDaConta = numeroDaConta;
         this.saldo = saldo;
     }
+
+    @Override
+    public String toString() {
+        return "- Número da conta: " + this.numeroDaConta + " saldo: " + this.saldo;
+    }
 }
