@@ -1,6 +1,6 @@
 package Modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
     private String nome;
     private int anoLancamento;
     private boolean incluidoPlano;
@@ -86,5 +86,10 @@ public class Titulo {
     public double retornaMedia() {
         double media = (somaDasAvaliacoes / totalAvaliacoes);
         return media;
+    }
+
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
     }
 }
