@@ -1,6 +1,6 @@
 package Modelos;
 
-public class Titulo implements Comparable<Titulo> {
+public class Titulo implements Comparable<Titulo> { //Comparable está aqui para que possamos utilizá-lo para ordenar a lista, foi passado o Título que será o tipo de objeto a ser comparado
     private String nome;
     private int anoLancamento;
     private boolean incluidoPlano;
@@ -88,8 +88,8 @@ public class Titulo implements Comparable<Titulo> {
         return media;
     }
 
-    @Override
+    @Override  //Comparable é uma interface, toda interface exige que um determinado método seja implementado, que no caso é esse método que há de ser implementado.
     public int compareTo(Titulo outroTitulo) {
-        return this.getNome().compareTo(outroTitulo.getNome());
+        return this.getNome().compareTo(outroTitulo.getNome()); //Aqui vai: Qual atributo de título que eu quero comparar com outro
     }
 }

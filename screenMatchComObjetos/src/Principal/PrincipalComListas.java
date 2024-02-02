@@ -17,6 +17,8 @@ public class PrincipalComListas {
         Serie minhaSerie = new Serie("True Detetive", 2023);
         minhaSerie.avalia(9);
 
+        // LinkedList
+
         List<Titulo> lista = new LinkedList<>();
 
         /*
@@ -64,9 +66,15 @@ public class PrincipalComListas {
         System.out.println("Lista após a ordenação: ");
         System.out.println(buscaPorArtista);
 
+        // Utilizando o comparable.
+
         System.out.println("Lista de títulos ordenados: ");
-        Collections.sort(lista);
+        // Quanto vamos comprar um objeto com mais de uma propriedade, como nesse caso em que lista é ums lista de Títulos, e título tem nome e ano de lançamento, precisamos utilizar a interface Comparable dentro de Titulo.
+        Collections.sort(lista); //Aqui não está dando erro porque a interface Comparable foi implementada dentro da classe Título, e no caso essa lista é do tipo Título.
         System.out.println(lista);
+
+        // Utilizando o Comparator.
+        // Não foi feito da mesma forma que o compareTo porque ele já foi utilizado, só podemos usar aquele método uma vez na classe.
 
         lista.sort(Comparator.comparing(Titulo::getAnoLancamento));
         System.out.println("Ordenando por ano de lançamento: ");
