@@ -1,7 +1,21 @@
 package Modelos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Titulo implements Comparable<Titulo> { //Comparable está aqui para que possamos utilizá-lo para ordenar a lista, foi passado o Título que será o tipo de objeto a ser comparado
+    /*
+    Esse @SerializedName é um recurso que vem com a biblioteca que implementamos no PrincipalComBusca.java
+    implementamos ele para converter um json recebido da API em um objeto da classe Titulo,
+    a função do @SerializedName é mapear as nossas variáveis porque a biblioteca de conversão, mapea os atributos da
+    classe (lembra que que fizemos isso para transformar um json em um objeto de uma classe)
+    buscando pelo nome deles em inglês, e nossos atributos estão com nomes em português, então estamos
+    dizendo que quando o conversor for buscar pela propriedade "Title", ele vai encontrar ela em nosso
+    código como sendo "nome".
+     */
+    @SerializedName("Title")
     private String nome;
+
+    @SerializedName("Year")
     private int anoLancamento;
     private boolean incluidoPlano;
 
@@ -10,6 +24,7 @@ public class Titulo implements Comparable<Titulo> { //Comparable está aqui para
     private double somaDasAvaliacoes;
 
     private int totalAvaliacoes = 0;
+
     private int duracaoEmMinutos;
 
     /*
@@ -22,7 +37,14 @@ public class Titulo implements Comparable<Titulo> { //Comparable está aqui para
         this.anoLancamento = anoLancamento;
     }
 
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.title();
+        this.anoLancamento = Integer.valueOf(meuTituloOmdb.year());
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
+    }
+
     // methods
+
 
 
     public String getNome() {
@@ -91,5 +113,13 @@ public class Titulo implements Comparable<Titulo> { //Comparable está aqui para
     @Override  //Comparable é uma interface, toda interface exige que um determinado método seja implementado, que no caso é esse método que há de ser implementado.
     public int compareTo(Titulo outroTitulo) {
         return this.getNome().compareTo(outroTitulo.getNome()); //Aqui vai: Qual atributo de título que eu quero comparar com outro
+    }
+
+    @Override
+    public String toString() {
+        return "nome: " + nome +
+                ", anoLancamento: " + anoLancamento +
+                ", duração: " + duracaoEmMinutos +
+                " minutos.";
     }
 }
