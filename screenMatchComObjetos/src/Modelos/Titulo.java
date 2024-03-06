@@ -1,6 +1,7 @@
 package Modelos;
 
 import com.google.gson.annotations.SerializedName;
+import excecao.ErroDeConversaoDeAnoException;
 
 public class Titulo implements Comparable<Titulo> { //Comparable está aqui para que possamos utilizá-lo para ordenar a lista, foi passado o Título que será o tipo de objeto a ser comparado
     /*
@@ -12,7 +13,7 @@ public class Titulo implements Comparable<Titulo> { //Comparable está aqui para
     dizendo que quando o conversor for buscar pela propriedade "Title", ele vai encontrar ela em nosso
     código como sendo "nome".
      */
-    @SerializedName("Title")
+    //@SerializedName("Title") // Não há mais necessidade do Serialized pois estamos utilizando o Record.
     private String nome;
 
     @SerializedName("Year")
@@ -39,6 +40,11 @@ public class Titulo implements Comparable<Titulo> { //Comparable está aqui para
 
     public Titulo(TituloOmdb meuTituloOmdb) {
         this.nome = meuTituloOmdb.title();
+
+        if (meuTituloOmdb.year().length() > 4) {
+            throw new ErroDeConversaoDeAnoException("Não foi possível converter o ano de lançamento do filme" +
+                    " porque ele possui mais de 4 caracteres. ");
+        }
         this.anoLancamento = Integer.valueOf(meuTituloOmdb.year());
         this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
     }
@@ -118,7 +124,7 @@ public class Titulo implements Comparable<Titulo> { //Comparable está aqui para
     @Override
     public String toString() {
         return "nome: " + nome +
-                ", anoLancamento: " + anoLancamento +
+                ", ano de lançamento: " + anoLancamento +
                 ", duração: " + duracaoEmMinutos +
                 " minutos.";
     }
