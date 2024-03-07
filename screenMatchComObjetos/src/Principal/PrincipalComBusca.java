@@ -1,20 +1,17 @@
 package Principal;
 
-import Exercicios.CaoEGatoOverwide.Gato;
 import Modelos.Titulo;
 import Modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import excecao.ErroDeConversaoDeAnoException;
+import Excecao.ErroDeConversaoDeAnoException;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.IllegalFormatException;
 import java.util.Scanner;
 
 public class PrincipalComBusca {

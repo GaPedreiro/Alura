@@ -1,4 +1,4 @@
-package excecao;
+package Excecao;
 
 public class ErroDeConversaoDeAnoException extends RuntimeException {
     /*

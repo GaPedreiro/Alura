@@ -1,7 +1,7 @@
 package Modelos;
 
 import com.google.gson.annotations.SerializedName;
-import excecao.ErroDeConversaoDeAnoException;
+import Excecao.ErroDeConversaoDeAnoException;
 
 public class Titulo implements Comparable<Titulo> { //Comparable está aqui para que possamos utilizá-lo para ordenar a lista, foi passado o Título que será o tipo de objeto a ser comparado
     /*
