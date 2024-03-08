@@ -8,8 +8,7 @@ Lance essa exceção quando o nome de usuário não for encontrado. No bloco cat
  https://api.github.com/users/
  */
 
-import com.google.gson.Gson;
-
+import Exercicios.ConsumindoAPI.ExerciciosAula3.ConsultaAPIGitHub.Excecao.UsuarioNaoEncontradoException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -26,17 +25,21 @@ public class Main {
 
         String endereco = new String("https://api.github.com/users/" + usuario);
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(endereco)).build();
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder().uri(URI.create(endereco)).build();
 
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        Strin json = response.body();
+            if (response.statusCode() == 404) {
+                throw new UsuarioNaoEncontradoException("Usuário não encontrado.");
+            }
 
-        Gson gson = new Gson();
+            System.out.println(response.body());
 
-        Usuario message = gson.fromJson(json, Usuario.class);
+        } catch (UsuarioNaoEncontradoException e) {
+            System.out.println(e.getMessage());
+        }
 
-        System.out.println(response.body());
     }
 }

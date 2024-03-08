@@ -1,8 +1,10 @@
 package Exercicios.ConsumindoAPI.ExerciciosAula3.ConsultaAPIGitHub;
 
+import Exercicios.ConsumindoAPI.ExerciciosAula3.ConsultaAPIGitHub.Excecao.UsuarioNaoEncontradoException;
+import Exercicios.ConsumindoAPI.ExerciciosAula3.Excecao.ConsultaAPIGitHub.UsuarioNaoEcontradoException;
+
 public class Usuario {
     private String nome;
-    private String message;
 
     public Usuario(String nome) {
         this.nome = nome;
@@ -16,4 +18,6 @@ public class Usuario {
     public String toString() {
         return this.nome;
     }
+
+
 }
