@@ -9,6 +9,9 @@ Lance essa exceção quando o nome de usuário não for encontrado. No bloco cat
  */
 
 import Exercicios.ConsumindoAPI.ExerciciosAula3.ConsultaAPIGitHub.Excecao.UsuarioNaoEncontradoException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -36,6 +39,21 @@ public class Main {
             }
 
             System.out.println(response.body());
+
+            String json = response.body();
+
+            Gson gson = new GsonBuilder().create();
+
+            MapeaConsulta usuarioFormatado = gson.fromJson(json, MapeaConsulta.class);
+            /*
+            Aqui o MapeaConsulta não é uma classe, mas sim um Record que eu criei.
+            ele funciona como uma classe as vezes, a gente consegue criar um objeto do tipo
+            dele, mas para isso temos que montar um construtor para ele dentro da classe: Usuário.
+             */
+
+            System.out.println("\nJSON formatado: ");
+            System.out.println("\n" + usuarioFormatado);
+
 
         } catch (UsuarioNaoEncontradoException e) {
             System.out.println(e.getMessage());

@@ -6,8 +6,18 @@ import Exercicios.ConsumindoAPI.ExerciciosAula3.Excecao.ConsultaAPIGitHub.Usuari
 public class Usuario {
     private String nome;
 
+    private String id;
+
+    private String imagem;
+
     public Usuario(String nome) {
         this.nome = nome;
+    }
+
+    public Usuario(MapeaConsulta consulta) {
+        this.nome = consulta.login();
+        this.id = consulta.id();
+        this.imagem = consulta.avatar_url();
     }
 
     public String getNome() {

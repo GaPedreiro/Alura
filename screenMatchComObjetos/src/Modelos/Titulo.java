@@ -46,7 +46,7 @@ public class Titulo implements Comparable<Titulo> { //Comparable está aqui para
                     " porque ele possui mais de 4 caracteres. ");
         }
         this.anoLancamento = Integer.valueOf(meuTituloOmdb.year());
-        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 3));
     }
 
     // methods
