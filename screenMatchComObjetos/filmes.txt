@@ -1,0 +1,10 @@
+[
+nome: Dogville
+ano de lançamento: 2003
+duração: 178 minutos., 
+nome: Batman
+ano de lançamento: 1989
+duração: 126 minutos., 
+nome: Zorro
+ano de lançamento: 1975
+duração: 120 minutos.]

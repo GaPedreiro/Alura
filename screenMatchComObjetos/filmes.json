@@ -1,0 +1,26 @@
+[
+  {
+    "Nome": "Dogville",
+    "Year": 2003,
+    "IncluidoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalAvaliacoes": 0,
+    "DuracaoEmMinutos": 178
+  },
+  {
+    "Nome": "Batman",
+    "Year": 1989,
+    "IncluidoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalAvaliacoes": 0,
+    "DuracaoEmMinutos": 126
+  },
+  {
+    "Nome": "Aquaman",
+    "Year": 2018,
+    "IncluidoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalAvaliacoes": 0,
+    "DuracaoEmMinutos": 143
+  }
+]

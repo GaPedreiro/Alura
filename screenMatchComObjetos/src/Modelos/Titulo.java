@@ -123,9 +123,9 @@ public class Titulo implements Comparable<Titulo> { //Comparable está aqui para
 
     @Override
     public String toString() {
-        return "nome: " + nome +
-                ", ano de lançamento: " + anoLancamento +
-                ", duração: " + duracaoEmMinutos +
+        return "\nnome: " + nome +
+                "\nano de lançamento: " + anoLancamento +
+                "\nduração: " + duracaoEmMinutos +
                 " minutos.";
     }
 }
