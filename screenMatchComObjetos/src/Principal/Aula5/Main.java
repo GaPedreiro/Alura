@@ -12,12 +12,28 @@ public class Main {
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
         ConsultaCep consulta = new ConsultaCep();
+        String cep = "";
 
-        System.out.println("Digite o CEP: ");
-        String cep = read.next();
-        Endereco endereco = consulta.buscaEndereco(cep);
+        while (!cep.equalsIgnoreCase("sair")) {
+            System.out.println("\nConsulta de CEP. Digite 'sair' para encerrar o programa.");
+            System.out.println("\nDigite o CEP: ");
+            cep = read.next();
 
-        System.out.println(endereco);
+            try {
+                Endereco endereco = consulta.buscaEndereco(cep);
+                System.out.println(endereco);
+                GeradorDeArquivo gerador = new GeradorDeArquivo();
+                gerador.geraArquivoJson(endereco);
+
+            } catch (RuntimeException | IOException e) {
+                System.out.println(e.getMessage());
+                System.out.println("Finalizando o programa.");
+            }
+        }
+
+
+
+
 
 
 
