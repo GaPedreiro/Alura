@@ -1,6 +1,9 @@
 package br.com.alura.screenmatch;
 
+import br.com.alura.screenmatch.Model.DadosSerie;
 import br.com.alura.screenmatch.Service.ConsumoAPI;
+import br.com.alura.screenmatch.Service.ConverteDados;
+import br.com.alura.screenmatch.Service.IConverteDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,8 +19,16 @@ public class ScreenmatchApplication implements CommandLineRunner { // CommandoLi
 	public void run(String... args) throws Exception {
 		ConsumoAPI consumoAPI = new ConsumoAPI();
 
-		var json = consumoAPI.obterDados("https://www.omdbapi.com/?t=Supernatural&Season=1&apikey=d1fb1433");
+		// Otendo os dados da série
+		// Atribuímos a resposta para uma variável chama 'json'
+		var json = consumoAPI.obterDados("https://www.omdbapi.com/?t=Supernatural&apikey=d1fb1433");
+		// Printamos o json para verificar seu conteúdo
 		System.out.println(json);
+		// Instanciamos o conversor
+		ConverteDados conversor = new ConverteDados();
+		// Pedimos que o conversor transformasse o json em um objeto da classe DadosSerie
+		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
+		System.out.println(dados);
 
 		// Agora a ideia é transoformar esse json de resposta em um objeto de uma classe. Vamos usar o Jackson pra isso. Ele é semelhante ao Gson.
 
