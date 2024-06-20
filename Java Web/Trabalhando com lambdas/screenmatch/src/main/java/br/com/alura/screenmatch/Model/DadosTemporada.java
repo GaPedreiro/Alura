@@ -10,10 +10,13 @@ public record DadosTemporada(@JsonAlias("Season") Integer temporada,
                              @JsonAlias("totalSeasons") Integer totalTemporadas,
                              @JsonAlias("Episodes") List<DadosEpisodios> dadosEpisodios) {
 
+    /*
     @Override
     public String toString() {
         return "\nTemporada: " + temporada +
                 "\n" +
                 "\nEpisódios: " + dadosEpisodios;
     }
+
+     */
 }

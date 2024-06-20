@@ -3,6 +3,7 @@ package br.com.alura.screenmatch.principal;
 import br.com.alura.screenmatch.Model.DadosEpisodios;
 import br.com.alura.screenmatch.Model.DadosSerie;
 import br.com.alura.screenmatch.Model.DadosTemporada;
+import br.com.alura.screenmatch.Model.Episodio;
 import br.com.alura.screenmatch.Service.ConsumoAPI;
 import br.com.alura.screenmatch.Service.ConverteDados;
 import br.com.alura.screenmatch.Service.IConverteDados;
@@ -40,7 +41,9 @@ public class Main {
 
         List<DadosTemporada> temporadasList = new ArrayList<>();
 
-        for (int i = 1; i < dadosSerie.totalTemporadas(); i++) {
+        System.out.println("teste"); // Até aqui está fumegando, pra baixo está dando erro. Caralho viu.
+
+        for (int i = 1; i <= dadosSerie.totalTemporadas(); i++) {
             json = consumoAPI.obterDados( ENDERCO + nomeSerie.replace(" ", "+") + "&Season=" + i + API_KEY);
             DadosTemporada dadosTemporada = conversor.obterDados(json, DadosTemporada.class);
             temporadasList.add(dadosTemporada);
@@ -68,5 +71,12 @@ public class Main {
                 .sorted(Comparator.comparing(DadosEpisodios::avaliacao).reversed())
                 .limit(5)
                 .forEach(System.out::println);
+
+        List<Episodio> episodios = temporadasList.stream()
+                .flatMap(t -> t.dadosEpisodios().stream()
+                        .map(d -> new Episodio(t.temporada(), d))
+                ).collect(Collectors.toList());
+
+        episodios.forEach(System.out::println);
     }
 }
